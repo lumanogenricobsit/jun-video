@@ -3,197 +3,37 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090909">
-
-<title>HeyitsJun. — Meme Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
 
 <style>
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
-  background: #090909;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 14px;
-}
-
-/* HEADER */
-
-header {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.logo {
-  font-size: clamp(34px, 9vw, 48px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  background: linear-gradient(120deg, #fff, #888);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.subtitle {
-  color: #888;
-  font-size: 10px;
-  letter-spacing: 5px;
-  margin-top: 9px;
-}
-
-.line {
-  width: 38px;
-  height: 2px;
-  background: #aaa;
-  margin: 15px auto 0;
-  border-radius: 10px;
-}
-
-/* VIDEO PLAYER */
-
-.player {
-  position: relative;
+html, body {
   width: 100%;
-  max-width: 520px;
-  border-radius: 18px;
+  height: 100%;
+  background: #000;
   overflow: hidden;
-  background: #151515;
-  box-shadow: 0 15px 50px rgba(0,0,0,.55);
 }
 
 video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
-  object-position: center;
-  background: #000;
-}
-
-/* SOUND BUTTON */
-
-#sound {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 13px 22px;
-  border: 1px solid rgba(255,255,255,.3);
-  border-radius: 30px;
-  background: rgba(20,20,20,.85);
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-/* VIDEO DETAILS */
-
-.details {
-  width: 100%;
-  max-width: 520px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 18px;
-  color: #888;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-footer {
-  color: #555;
-  font-size: 10px;
-  letter-spacing: 3px;
-  margin-top: 35px;
-  text-align: center;
-}
-
-/* MOBILE */
-
-@media(max-width: 480px) {
-  body {
-    padding: 20px 10px;
-  }
-
-  header {
-    margin-bottom: 22px;
-  }
-
-  .player {
-    max-width: 100%;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">HeyitsJun.</div>
-  <div class="subtitle">MEME STUDIO</div>
-  <div class="line"></div>
-</header>
-
-<div class="player">
-
-  <video
-    id="video"
-    autoplay
-    muted
-    playsinline
-    loop
-    preload="auto">
-
-    <source
-      src="./Arayy%20ko!%20%23malupiton%20%23funny.mp4"
-      type="video/mp4">
-
-    Your browser does not support HTML video.
-  </video>
-
-  <button id="sound">🔊 TAP FOR SOUND</button>
-
-</div>
-
-<div class="details">
-  <span>HEYITSJUN ORIGINAL VIDEO</span>
-  <span>VOL. 001</span>
-</div>
-
-<footer>
-  © HEYITSJUN. ALL RIGHTS RESERVED
-</footer>
-
-<script>
-const video = document.getElementById("video");
-const sound = document.getElementById("sound");
-
-// Attempt muted autoplay
-video.play().catch(() => {});
-
-// Enable sound after viewer interaction
-sound.addEventListener("click", async () => {
-  video.muted = false;
-
-  try {
-    await video.play();
-    sound.style.display = "none";
-  } catch (error) {
-    sound.textContent = "TAP TO PLAY";
-  }
-});
-</script>
+<video autoplay muted loop playsinline controls>
+  <source src="./Arayy%20ko!%20%23malupiton%20%23funny.mp4" type="video/mp4">
+</video>
 
 </body>
 </html>
