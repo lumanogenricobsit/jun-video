@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080808">
-<title>JUN. | Private Video</title>
+<title>JUN.</title>
 
 <style>
 * { box-sizing: border-box; }
@@ -25,7 +24,7 @@ body {
 
 header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 h1 {
@@ -34,7 +33,7 @@ h1 {
   margin: 0;
 }
 
-.subtitle {
+.sub {
   color: #777;
   font-size: 10px;
   letter-spacing: 4px;
@@ -45,17 +44,17 @@ h1 {
   position: relative;
   width: 100%;
   max-width: 390px;
-  background: #151515;
-  border-radius: 15px;
+  border-radius: 14px;
   overflow: hidden;
+  background: #151515;
 }
 
 video {
-  display: block;
   width: 100%;
+  display: block;
   aspect-ratio: 9 / 16;
   object-fit: contain;
-  background: #000;
+  background: black;
 }
 
 #sound {
@@ -63,13 +62,11 @@ video {
   bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
+  background: #242424;
   border: 1px solid #555;
   border-radius: 30px;
-  background: rgba(20,20,20,.85);
   color: white;
-  padding: 13px 22px;
-  font-size: 13px;
-  cursor: pointer;
+  padding: 13px 20px;
 }
 
 footer {
@@ -85,37 +82,26 @@ footer {
 
 <header>
   <h1>JUN.</h1>
-  <div class="subtitle">VIDEO COLLECTION</div>
+  <div class="sub">VIDEO COLLECTION</div>
 </header>
 
 <div class="player">
-  <video id="myVideo"
-    autoplay
-    muted
-    playsinline
-    loop
-    preload="auto">
-    <source src="Arayy%20ko!%20%23malupiton%20%23funny.mp4"
+  <video id="video" autoplay muted playsinline loop>
+    <source
+      src="./Arayy%20ko!%20%23malupiton%20%23funny.mp4"
       type="video/mp4">
   </video>
 
-  <button id="sound">🔊 TAP FOR SOUND</button>
+  <button id="sound">TAP FOR SOUND</button>
 </div>
 
-<footer>© JUN. ALL RIGHTS RESERVED</footer>
+<footer>© JUN.</footer>
 
 <script>
-const video = document.getElementById("myVideo");
+const video = document.getElementById("video");
 const sound = document.getElementById("sound");
 
-// Attempt autoplay with sound first.
-// If the browser blocks it, autoplay muted.
-video.muted = false;
-
-video.play().catch(() => {
-  video.muted = true;
-  video.play().catch(() => {});
-});
+video.play().catch(() => {});
 
 sound.addEventListener("click", async () => {
   video.muted = false;
@@ -123,9 +109,8 @@ sound.addEventListener("click", async () => {
   try {
     await video.play();
     sound.style.display = "none";
-  } catch (error) {
-    video.muted = true;
-    sound.textContent = "TAP TO PLAY WITH SOUND";
+  } catch {
+    sound.textContent = "TAP TO PLAY";
   }
 });
 </script>
