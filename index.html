@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
 
 <style>
 * {
@@ -20,59 +19,26 @@ html, body {
   overflow: hidden;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 video {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
-
-#soundButton {
-  position: fixed;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 13px 24px;
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 30px;
-  background: rgba(20,20,20,0.8);
-  color: white;
-  font-size: 14px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-}
-
-#soundButton.hidden {
-  display: none;
-}
 </style>
 </head>
 
 <body>
 
-<video id="myVideo" autoplay muted loop playsinline>
+<video autoplay playsinline loop controls>
   <source src="./Arayy%20ko!%20%23malupiton%20%23funny.mp4" type="video/mp4">
 </video>
-
-<button id="soundButton">TAP FOR SOUND 🔊</button>
-
-<script>
-const video = document.getElementById("myVideo");
-const button = document.getElementById("soundButton");
-
-button.addEventListener("click", async () => {
-  video.muted = false;
-
-  try {
-    await video.play();
-    button.classList.add("hidden");
-  } catch (error) {
-    video.muted = true;
-    button.textContent = "TAP TO UNMUTE 🔊";
-  }
-});
-</script>
 
 </body>
 </html>
